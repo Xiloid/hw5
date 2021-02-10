@@ -65,10 +65,10 @@ def email():
     while mail_len <= 6 and dog != 1:
         mail = input('Введите Вашу электропочту: ')
         mail_len = len(mail)
-        for x in mail:
-            if x == '@':
-                dog += 1
-            else:
+        dog = mail.count('@')
+    print(mail)
+
+
 
 
 

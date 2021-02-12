@@ -36,26 +36,25 @@
 """
 import string
 
+
 def main():
-    email()
+    phone()
+#   email()
 
 
 def phone():
-    phone_res = None
-    count = 0
-    while count != 12:
-        a = []
-        phone = input('Введите номер телефона: ')
-        for i in phone:
-            if i.isdigit():
-                a.append(i)
-                count += 1
-        if count == 12:
-            phone_res = "".join(a)
+    while True:
+        phone_num = input('Введите номер телефона: ')
+        digits = ''
+        for char in phone:
+            if char.isdigit():
+                digits += char
+        if len(digits) >= 9:
+            phone_num = '380' + digits[-9:]
         else:
-            print('Повторите ввод! Телефон должен содержать 12 цифр!')
-            count = 0
-    print('Номер телефона в необходимом формате: ', phone_res)
+            print('Неверный формат номера!')
+            continue
+        print('Номер телефона:', phone_num)
 
 
 def email():
@@ -67,17 +66,6 @@ def email():
         mail_len = len(mail)
         dog = mail.count('@')
     print(mail)
-
-
-
-
-
-
-
-
-
-
-
 
 
 if __name__ == '__main__':

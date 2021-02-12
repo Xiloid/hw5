@@ -34,13 +34,14 @@
     Ваш email: example@mail.com
     Ваш пароль: ********** (кол-во  == кол-ву символов пароля)
 """
-# import string
+import string
+#import random
 
 
 def main():
 #    phone()
-    print(email())
-
+#    print(email())
+    pswd()
 
 
 def phone():
@@ -66,6 +67,24 @@ def email():
         e_length = len(e_mail)
         e_dog = e_mail.count('@')
     return e_mail
+
+
+def pswd():
+    p_length = p_space = p_upper = p_lower = p_digit = 0
+    passwrd = None
+    while p_length < 8 or p_space != 0 or p_upper < 1 or p_lower < 1 or p_digit < 1:
+        passwrd = input('Введите пароль: ')
+        p_length = len(passwrd)
+        for i in passwrd:
+            if str.isdigit(i):
+                p_digit += 1
+            elif str.islower(i):
+                p_lower += 1
+            elif str.isupper(i):
+                p_upper += 1
+            elif str.isspace(i):
+                p_space += 1
+    print('Ваш пароль:', passwrd)
 
 
 if __name__ == '__main__':

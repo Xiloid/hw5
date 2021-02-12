@@ -41,7 +41,17 @@ import string
 def main():
 #    phone()
 #    print(email())
-    pswd()
+#    pswd()
+    eqality = pswd()
+#    pswd_eqal(eqality)
+    eqal_result = pswd_eqal(eqality)
+    g = len(r)
+    print(''.ljust(g, '*'))
+print(
+    f'1.Your EMAIL {a}'
+    f'2.Your Password {eqal_result}'
+)
+
 
 
 def phone():
@@ -84,7 +94,15 @@ def pswd():
                 p_upper += 1
             elif str.isspace(i):
                 p_space += 1
-    print('Ваш пароль:', passwrd)
+    return passwrd
+
+
+def pswd_eqal(eqality):
+    ok_pass = input('Подтвердите пароль: ')
+    if ok_pass == eqality:
+        return ok_pass
+    else:
+        pswd()
 
 
 if __name__ == '__main__':

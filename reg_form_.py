@@ -34,19 +34,20 @@
     Ваш email: example@mail.com
     Ваш пароль: ********** (кол-во  == кол-ву символов пароля)
 """
-import string
+# import string
 
 
 def main():
-    phone()
-#   email()
+#    phone()
+    print(email())
+
 
 
 def phone():
     while True:
         phone_num = input('Введите номер телефона: ')
         digits = ''
-        for char in phone:
+        for char in phone_num:
             if char.isdigit():
                 digits += char
         if len(digits) >= 9:
@@ -58,14 +59,13 @@ def phone():
 
 
 def email():
-    mail = x = None
-    dog = 0
-    mail_len = 0
-    while mail_len <= 6 and dog != 1:
-        mail = input('Введите Вашу электропочту: ')
-        mail_len = len(mail)
-        dog = mail.count('@')
-    print(mail)
+    e_length = e_dog = 0
+    e_mail = None
+    while e_length < 6 or e_dog != 1:
+        e_mail = input('Введите электропочту: ')
+        e_length = len(e_mail)
+        e_dog = e_mail.count('@')
+    return e_mail
 
 
 if __name__ == '__main__':

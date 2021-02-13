@@ -63,7 +63,7 @@ def phone():
         else:
             print('Неверный формат номера!')
             continue
-        print('Телефон записан.')
+        print(f'Телефон "{phone_input}" записан.')
         return phone_input
 
 
@@ -76,7 +76,7 @@ def email():
         ampersand = mail_input.count('@')
         if mail_length < 6 or ampersand != 1:
             print('Неверный формат почты! Необходимо 6 символов и @')
-    print('Email записан.')
+    print(f'Электропочта "{mail_input}" записана.')
     return mail_input
 
 
@@ -98,12 +98,12 @@ def pswd():
                 p_space += 1
         if p_length < 8 or p_space != 0 or p_upper < 1 or p_lower < 1 or p_digit < 1:
             print('Неверный формат пароля! Повторите ввод!')
-        ok_pass = input('Подтвердите пароль: ')
-        if ok_pass == pswd_input:
-            return pswd_input
-        else:
-            print('Пароли не совпадают! Повторите ввод!')
-            return pswd()
+    ok_pass = input('Подтвердите пароль: ')
+    if ok_pass == pswd_input:
+        return pswd_input
+    else:
+        print('Пароли не совпадают! Повторите ввод!')
+        return pswd()
 
 if __name__ == '__main__':
     main()

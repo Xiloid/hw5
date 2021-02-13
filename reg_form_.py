@@ -39,8 +39,8 @@
 def main():
     phone_result = phone()
     email_result = email()
-    eqality = pswd()
-    asterisks = len(pswd_eqal(eqality))
+    len_str = pswd()
+    asterisks = len(len_str)
     pass_result = ''.ljust(asterisks, '*')
     print()
     print(
@@ -84,6 +84,7 @@ def pswd():
     p_length = p_space = p_upper = p_lower = p_digit = 0
     pswd_input = None
     while p_length < 8 or p_space != 0 or p_upper < 1 or p_lower < 1 or p_digit < 1:
+        p_length = p_space = p_upper = p_lower = p_digit = 0
         pswd_input = input('Введите пароль: ')
         p_length = len(pswd_input)
         for i in pswd_input:
@@ -95,16 +96,14 @@ def pswd():
                 p_upper += 1
             elif str.isspace(i):
                 p_space += 1
-    return pswd_input
-
-
-def pswd_eqal(eqality):
-    ok_pass = input('Подтвердите пароль: ')
-    if ok_pass == eqality:
-        return ok_pass
-    else:
-        pswd()
-
+        if p_length < 8 or p_space != 0 or p_upper < 1 or p_lower < 1 or p_digit < 1:
+            print('Неверный формат пароля! Повторите ввод!')
+        ok_pass = input('Подтвердите пароль: ')
+        if ok_pass == pswd_input:
+            return pswd_input
+        else:
+            print('Пароли не совпадают! Повторите ввод!')
+            return pswd()
 
 if __name__ == '__main__':
     main()

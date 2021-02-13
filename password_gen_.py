@@ -24,20 +24,25 @@ import string
 
 
 def main():
-    choice = input(
-        "Меню: \n"
-        "1. Сгенерировать простой пароль.\n"
-        "2. Сгенерировать средний пароль.\n"
-        "3. Сгенерировать сложный пароль.\n"
-        "4. Выход.\n"
-        "Сделайте выбор и нажмите Enter: "
-    )
-    if choice == '1':
-        low_pass()
-    elif choice == '2':
-        med_pass()
-    elif choice == '3':
-        strong_pass()
+    while True:
+        print()
+        choice = input(
+            "Меню: \n"
+            "1. Сгенерировать простой пароль.\n"
+            "2. Сгенерировать средний пароль.\n"
+            "3. Сгенерировать сложный пароль.\n"
+            "4. Выход.\n"
+            "Сделайте выбор и нажмите Enter: "
+        )
+        if choice == '1':
+            low_pass()
+        elif choice == '2':
+            med_pass()
+        elif choice == '3':
+            strong_pass()
+        else:
+            print('Выходим...')
+            break
 
 
 def low_pass():

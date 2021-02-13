@@ -34,58 +34,59 @@
     Ваш email: example@mail.com
     Ваш пароль: ********** (кол-во  == кол-ву символов пароля)
 """
-import string
-#import random
 
 
 def main():
-#    phone()
-#    print(email())
-#    pswd()
+    phone_result = phone()
+    email_result = email()
     eqality = pswd()
-#    pswd_eqal(eqality)
-    eqal_result = pswd_eqal(eqality)
-    g = len(r)
-    print(''.ljust(g, '*'))
-print(
-    f'1.Your EMAIL {a}'
-    f'2.Your Password {eqal_result}'
-)
-
+    asterisks = len(pswd_eqal(eqality))
+    pass_result = ''.ljust(asterisks, '*')
+    print()
+    print(
+        'Поздравляем с успешной регистрацией!\n'
+        f'Ваш номер телефона: {phone_result}\n'
+        f'Ваш email: {email_result}\n'
+        f'Ваш пароль: {pass_result}\n'
+        )
 
 
 def phone():
     while True:
-        phone_num = input('Введите номер телефона: ')
+        phone_input = input('Введите номер телефона: ')
         digits = ''
-        for char in phone_num:
+        for char in phone_input:
             if char.isdigit():
                 digits += char
         if len(digits) >= 9:
-            phone_num = '380' + digits[-9:]
+            phone_input = '380' + digits[-9:]
         else:
             print('Неверный формат номера!')
             continue
-        print('Номер телефона:', phone_num)
+        print('Телефон записан.')
+        return phone_input
 
 
 def email():
-    e_length = e_dog = 0
-    e_mail = None
-    while e_length < 6 or e_dog != 1:
-        e_mail = input('Введите электропочту: ')
-        e_length = len(e_mail)
-        e_dog = e_mail.count('@')
-    return e_mail
+    mail_length = ampersand = 0
+    mail_input = None
+    while mail_length < 6 or ampersand != 1:
+        mail_input = input('Введите электропочту: ')
+        mail_length = len(mail_input)
+        ampersand = mail_input.count('@')
+        if mail_length < 6 or ampersand != 1:
+            print('Неверный формат почты! Необходимо 6 символов и @')
+    print('Email записан.')
+    return mail_input
 
 
 def pswd():
     p_length = p_space = p_upper = p_lower = p_digit = 0
-    passwrd = None
+    pswd_input = None
     while p_length < 8 or p_space != 0 or p_upper < 1 or p_lower < 1 or p_digit < 1:
-        passwrd = input('Введите пароль: ')
-        p_length = len(passwrd)
-        for i in passwrd:
+        pswd_input = input('Введите пароль: ')
+        p_length = len(pswd_input)
+        for i in pswd_input:
             if str.isdigit(i):
                 p_digit += 1
             elif str.islower(i):
@@ -94,7 +95,7 @@ def pswd():
                 p_upper += 1
             elif str.isspace(i):
                 p_space += 1
-    return passwrd
+    return pswd_input
 
 
 def pswd_eqal(eqality):
